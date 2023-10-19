@@ -22,19 +22,20 @@ public class movement : MonoBehaviour
     {
         
         if ((Input.GetKey(KeyCode.RightArrow))){
-                if (initial.x<=14)
-                    initial.x=initial.x+displacement;
-                animator.SetFloat("speed",1);
+                animator.SetFloat("speed",1.0f);
+                initial.x=initial.x+displacement;
+                
         }
-        else if (Input.GetKey(KeyCode.Space)){
+        
+        if (Input.GetKey(KeyCode.Space)){
             //for jump
             warrior.AddForce(new Vector2(warrior.velocity.x,jump));
             
         }
-
-
-        else
+       
+        if (!Input.anyKey)
             animator.SetFloat("speed",0);
+        
 
             
 
